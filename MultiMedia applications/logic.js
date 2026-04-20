@@ -46,10 +46,27 @@ prevBtn.addEventListener('click', () => {
     loadTrack(currentTrackIndex);
 });
 
+// Variable to store volume level before muting
+let previousVolume = 1; 
+
 muteBtn.addEventListener('click', () => {
-    audio.muted = !audio.muted;
-    muteBtn.textContent = audio.muted ? "Unmute" : "Mute";
-    volumeSlider.value = audio.muted ? 0 : audio.volume;
+    if (!audio.muted) {
+        // 1. SAVE the current volume before muting
+        previousVolume = audio.volume; 
+        
+        // 2. MUTE the audio
+        audio.muted = true;
+        muteBtn.textContent = "Unmute";
+        volumeSlider.value = 0; // Move slider to zero visually
+    } else {
+        // 3. UNMUTE the audio
+        audio.muted = false;
+        muteBtn.textContent = "Mute";
+        
+        // 4. RESTORE the volume from our "memory bank"
+        audio.volume = previousVolume;
+        volumeSlider.value = previousVolume; // Move slider back to where it was
+    }
 });
 
 loopBtn.addEventListener('click', () => {
