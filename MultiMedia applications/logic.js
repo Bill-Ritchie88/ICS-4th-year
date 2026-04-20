@@ -72,3 +72,17 @@ audio.addEventListener('timeupdate', () => {
     let secs = Math.floor(audio.currentTime % 60);
     timeDisplay.textContent = `${mins}:${secs < 10 ? '0' + secs : secs}`;
 });
+
+window.addEventListener('keydown', (e) => {
+    if (e.code === 'Space') {
+        
+        e.preventDefault(); 
+        if (audio.paused) {
+            audio.play();
+            playPauseBtn.innerHTML = '⏸';
+        } else {
+            audio.pause();
+            playPauseBtn.innerHTML = '▶';
+        }
+    }
+});
