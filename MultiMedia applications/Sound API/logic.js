@@ -11,9 +11,9 @@ const speedVal = document.getElementById('speedVal');
 const timeDisplay = document.getElementById('timeDisplay');
 
 const playlist = [
-    { title: "Track 01", file: "track1.mp3" },
-    { title: "Track 02", file: "track2.mp3" },
-    { title: "Track 03", file: "track3.mp3" }
+    { title: "Track 01", file: "audio1.mp3" },
+    { title: "Track 02", file: "audio2.mp3" },
+    { title: "Track 03", file: "audio3.mp3" }
 ];
 
 let currentTrackIndex = 0;
@@ -21,12 +21,15 @@ let currentTrackIndex = 0;
 function loadTrack(index) {
     currentTrackIndex = index;
     audio.src = playlist[currentTrackIndex].file;
+    // Automatic title update
     songTitle.textContent = playlist[currentTrackIndex].title;
     audio.play();
     playPauseBtn.innerHTML = '⏸'; 
 }
 
 playPauseBtn.addEventListener('click', () => {
+    //Dynamic change (title update)
+    songTitle.textContent = playlist[currentTrackIndex].title
     if (audio.paused) {
         audio.play();
         playPauseBtn.innerHTML = '⏸';
