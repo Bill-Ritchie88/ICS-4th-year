@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia Canvas Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <header>
+            <h1>Multimedia Web Player & Visualizer</h1>
+            <p>Control the audio track and watch the interactive canvas render visual frequencies in real-time.</p>
+        </header>
+
+        <div class="visualizer-container">
+            <canvas id="animationCanvas"></canvas>
+        </div>
+
+        <div class="controls-panel">
+            <audio id="audioTrack" src="C:\Users\billr\OneDrive\Documents\ICS 4th year\MultiMedia applications" crossorigin="anonymous"></audio>
+            
+            <div class="button-group">
+                <button id="playBtn" class="btn">Play Track</button>
+                <button id="pauseBtn" class="btn secondary">Pause</button>
+            </div>
+
+            <div class="slider-group">
+                <label for="speedSlider">Animation Multiplier: <span id="speedVal">1x</span></label>
+                <input type="range" id="speedSlider" min="0.5" max="3" step="0.1" value="1">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
